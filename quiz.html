@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz</title>
+
+    <script>
+        let timeLeft = 60; // 60 seconds
+
+        function startTimer() {
+            let timer = setInterval(function() {
+                document.getElementById("timer").innerHTML = timeLeft + " seconds left";
+                timeLeft--;
+
+                if (timeLeft < 0) {
+                    clearInterval(timer);
+                    alert("Time up! Submitting quiz...");
+                    document.getElementById("quizForm").submit();
+                }
+            }, 1000);
+        }
+
+        window.onload = startTimer;
+    </script>
+</head>
+
+<body>
+
+<h2 id="timer">Time Left: 60</h2>
+
+<form action="/quiz" method="POST">
+
+<!-- Question 1 -->
+<p>1. Python is?</p>
+<input type="radio" name="q1" value="1"> Programming Language<br>
+<input type="radio" name="q1" value="0"> Animal<br>
+
+<!-- Question 2 -->
+<p>2. ML stands for?</p>
+<input type="radio" name="q2" value="1"> Machine Learning<br>
+<input type="radio" name="q2" value="0"> Manual Learning<br>
+
+<!-- Question 3 -->
+<p>3. AI means?</p>
+<input type="radio" name="q3" value="1"> Artificial Intelligence<br>
+<input type="radio" name="q3" value="0"> Automatic Input<br>
+
+<!-- Question 4 -->
+<p>4. HTML is?</p>
+<input type="radio" name="q4" value="1"> Markup Language<br>
+<input type="radio" name="q4" value="0"> Programming Language<br>
+
+<!-- Question 5 -->
+<p>5. CSS is used for?</p>
+<input type="radio" name="q5" value="1"> Styling<br>
+<input type="radio" name="q5" value="0"> Database<br>
+
+<!-- Question 6 -->
+<p>6. Flask is?</p>
+<input type="radio" name="q6" value="1"> Python Framework<br>
+<input type="radio" name="q6" value="0"> Game<br>
+
+<!-- Question 7 -->
+<p>7. Data means?</p>
+<input type="radio" name="q7" value="1"> Information<br>
+<input type="radio" name="q7" value="0"> Nothing<br>
+
+<!-- Question 8 -->
+<p>8. AI used in?</p>
+<input type="radio" name="q8" value="1"> Robots<br>
+<input type="radio" name="q8" value="0"> Trees<br>
+
+<!-- Question 9 -->
+<p>9. Python file extension?</p>
+<input type="radio" name="q9" value="1"> .py<br>
+<input type="radio" name="q9" value="0"> .html<br>
+
+<!-- Question 10 -->
+<p>10. Database example?</p>
+<input type="radio" name="q10" value="1"> MySQL<br>
+<input type="radio" name="q10" value="0"> Google<br>
+
+<br>
+<button type="submit">Submit Quiz</button>
+
+</form>
+
+</body>
+</html>

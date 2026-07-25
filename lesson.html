@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ lesson.title }}</title>
+
+    <style>
+        body {
+            background-color: #f5f9ff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+
+        /* 🔥 MAIN TITLE */
+        .main-title {
+            text-align: center;
+            font-size: 45px;
+            color: #1a73e8;
+            margin-bottom: 25px;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+        }
+
+        /* 🔵 HEADINGS */
+        h1, h2, h3 {
+            color: #3498db;
+            margin-top: 25px;
+            border-bottom: 2px solid #e3f2fd;
+            padding-bottom: 6px;
+        }
+
+        /* 📘 TEXT */
+        p {
+            color: #555;
+            line-height: 1.8;
+            font-size: 17px;
+        }
+
+        ul, ol {
+            color: #444;
+            margin-left: 25px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        /* 💻 CODE BLOCK */
+        pre {
+            background: #f1f1f1;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+
+        /* 🚀 BUTTONS */
+        .btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            background: #1a73e8;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        .btn:hover {
+            background: #155ab6;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <!-- 🔥 BIG CENTER TITLE -->
+    <h1 class="main-title">{{ lesson.title }}</h1>
+
+    <!-- 📘 LESSON CONTENT -->
+    <div>
+        {{ lesson.content | safe }}
+    </div>
+
+    <!-- 🔙 BACK BUTTON -->
+    <a href="/courses" class="btn">⬅ Back to Courses</a>
+
+</div>
+
+</body>
+</html>

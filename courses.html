@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Courses</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial;
+        }
+
+        .course-box {
+            display: inline-block;
+            padding: 20px;
+            margin: 20px;
+            background: #007BFF;
+            color: white;
+            border-radius: 10px;
+            width: 200px;
+            cursor: pointer;
+        }
+
+        .course-box:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<h1>📚 Select Course</h1>
+
+<div class="course-box" onclick="window.location.href='/course/datascience'">
+    📊 Data Science
+</div>
+
+<div class="course-box" onclick="window.location.href='/course/ml'">
+    🤖 Machine Learning
+</div>
+
+</body>
+</html>

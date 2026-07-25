@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title>E Learning Platform</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+        }
+
+        .navbar {
+            background: #2196f3;
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 9999;
+        }
+
+        .menu-icon {
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        .side-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 70%;
+            height: 100%;
+            background: white;
+            padding: 20px;
+            transition: 0.3s;
+            z-index: 10000;
+        }
+
+        .side-menu.active {
+            right: -30px;
+        }
+
+        .side-menu a {
+            display: block;
+            margin: 15px 0;
+            font-size: 18px;
+            text-decoration: none;
+            color: black;
+        }
+
+        .close-btn {
+            font-size: 25px;
+            cursor: pointer;
+            float: right;
+        }
+
+        .hero {
+            margin-top: 80px;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .hero span {
+            color: #00c9a7;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background: #00c9a7;
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+        } 
+    </style>
+</head>
+
+<body>
+
+
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div>E Learning Platform</div>
+    <div class="menu-icon" onclick="openMenu()">☰</div>
+</div>
+
+<!-- SIDE MENU -->
+<div id="sideMenu" class="side-menu">
+    <span class="close-btn" onclick="closeMenu()">✖</span>
+
+    <a href="/">🏠 Home</a>
+    <a href="/courses">📚 Courses</a>
+    <a href="/dashboard">📊 Dashboard</a>
+    <a href="/quiz">🧠 Quiz</a>
+    <a href="/login">🔑 Login</a>
+    <a href="/signup">📝 Sign Up</a>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+    <div>🚀 Personalized E-Learning Platform</div>
+
+    <h1>
+        Master Data Science with <br>
+        <span>Personalized Learning</span>
+    </h1>
+
+    <p>
+        Personalized learning paths for Data Visualization & Machine Learning.
+        Adaptive quizzes, Telugu support, and real-world projects.
+    </p>
+
+</div>
+
+<section class="why">
+    <h2>Why LearnPath<span> in personalized</span></h2>
+    <p class="subtitle">
+        Intelligent features that adapt to your learning style
+    </p>
+
+    <div class="cards">
+        <div class="card">
+            <div class="icon">✨</div>
+            <h3>Ml and Ds-Powered Paths</h3>
+            <p>Smart algorithms analyze your performance.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">⚡</div>
+            <h3>Adaptive Difficulty</h3>
+            <p>Content adjusts to your level automatically.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🎮</div>
+            <h3>Gamification</h3>
+            <p>Earn points and badges.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🌐</div>
+            <h3>Telugu Support</h3>
+            <p>Learn in Telugu or English.</p>
+        </div>
+    </div>
+</section>
+<script>
+function openMenu() {
+    document.getElementById("sideMenu").classList.add("active");
+}
+
+function closeMenu() {
+    document.getElementById("sideMenu").classList.remove("active");
+}
+
+</script>
+
+</body>
+</html>
