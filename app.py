@@ -1,7 +1,7 @@
 
 from flask import Flask, render_template, request, redirect, session, jsonify
 from werkzeug.security import check_password_hash
-
+import ollama
 
 import sqlite3
 app=Flask(__name__)
@@ -529,6 +529,62 @@ def dashboard():
 def get_started():
     return render_template('get_started.html')
 
+
+@app.route('/chat', methods=['POST'])
+def chat():
+    data = request.get_json()
+    user_message = data.get("message", "")
+
+    response = ollama.chat(
+        model="llama3.2:3b",
+        messages=[
+    {
+        "role": "system",
+        "content": """You are a friendly AI tutor for students.
+
+Answer the student's question directly. Keep the answer short, simple and easy to understand.
+
+LANGUAGE RULE:
+Reply in the same language and writing style as the student's question.
+
+If the student writes Telugu using English letters, use NORMAL SPOKEN TELUGU written in English letters, like students commonly chat with friends.
+
+For example:
+
+Student: naku data science ante enti simple ga cheppu
+
+Good answer:
+Data science ante data ni collect chesi, analyze chesi, danilo useful information and patterns ni find cheyyadam. Dinni use chesi better decisions teesukovachu.
+
+Student: naku machine learning ardham ayyela cheppu
+
+Good answer:
+Machine learning ante computer ki data nundi nerchukune process. Manam computer ki chala examples istam. Aa examples ni batti computer patterns ni nerchukuntundi. Tarvatha aa knowledge tho predictions cheyyagaladu.
+
+IMPORTANT:
+- Use simple spoken Telugu-English.
+- Do not use formal Telugu words.
+- Do not create strange Telugu words.
+- Do not translate English words into Telugu unnecessarily.
+- Keep common technical words in English, such as AI, machine learning, data, model, training, prediction, etc.
+- Do not use Telugu script when the student uses English letters.
+- Do not give unnecessarily long explanations.
+- Answer what the student actually asked.
+"""
+    },
+    {
+        "role": "user",
+        "content": user_message
+    }
+]
+    )
+
+    ai_message = response["message"]["content"]
+
+    return jsonify({
+        "response": ai_message
+    })
+
+
 if __name__ == "__main__":
     app.run(debug=True)
-
